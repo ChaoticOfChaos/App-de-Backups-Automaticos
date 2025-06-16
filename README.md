@@ -1,11 +1,23 @@
-# Como funciona
+# Como Usar
+1. Baixe o Arquivo Main.py
+2. Execute ele Com:
+```sh
+python Main.py
+```
+3. Na Primeira Execução Ele Pedirá para Você Configurar o Arquivo de Configuração. Ex:
+```sh
+Diretório Para Backup (Vazio Para Próximo) >>> C:/Users/user/Downloads
+Diretório Para Backup (Vazio Para Próximo) >>> 
+Local de Salvamento do Backup >>> C:/Backups
+Intervalo Entre Backups (Dias) >>> 30
+```
+4. Agora, Toda Vez que Você Iniciar o Aplicativo Ele Vai Verificar se Passou o Intervalo de Tempo Entre Backups, e se Passou Ele Faz Outro.
+5. Caso Queira Configura-lo Após a Configuração Inicial, Basta Digitar:
+```sh
+python Main.py --config
+```
+E Ele Vai Abrir o Menu de Configuração Novamente
 
-Um sistema de Backup Automatico utilizando a biblioteca datetime, panda e zipfile para criar um sistema de agendamentos de backup de arquivos csv sem utilizar schedule
-
-# Como usar
-
-Para utilizar basta colocar o diretório do arquivo csv desejado e escolher entre as 3 opções de agendamentos, com isso basta apenas manter a aplicação aberta que será possível que os backups serão zipados e criado na mesma pasta de origem do arquivo original 
-
-# OBS
-
-Esse sistema foi feito com o intuito de mostrar manipulações de arquivos e gerenciamentos de arquivos com python
+# Projeto Original:
+O Projeto Original Pertence a Meu Amigo ySpac3
+https://github.com/ySpac3/App-de-Backups-Automaticos
