@@ -21,10 +21,13 @@ def Backup():
                 if dirs == None or outp == None:
                     return
                 for dr in dirs:
-                    with zipfile.ZipFile(os.path.join(outp, f"{os.path.basename(dr)}.zip"), 'w') as zipf:
-                        for item in os.listdir(dr):
-                            if item not in [".", ".."]:
-                                zipf.write(os.path.join(dr, item), arcname=item)
+                    zip_path = os.path.join(outp, f"{os.path.basename(dr)}.zip")
+                    with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+                        for root, _, files in os.walk(dr):
+                            for file in files:
+                                file_path = os.path.join(root, file)
+                                arcname = os.path.relpath(file_path, start=dr)
+                                zipf.write(file_path, arcname=arcname)
 
                 today_str = dt.datetime.today().strftime("%Y-%m-%d")
                 jsonData["lastbkp"] = today_str
